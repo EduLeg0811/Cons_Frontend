@@ -1,0 +1,987 @@
+/* Base Variables */
+:root {
+    --primary: #4F46E5;
+    --primary-hover: #4338CA;
+    --secondary: #10B981;
+    --secondary-hover: #0D9F6E;
+    --dark: #1F2937;
+    --light: #F9FAFB;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --lilac: #9d4edd;
+    --lilac-hover: #7b2cbf;
+    --dark-yellow: #e6b800;
+    --dark-yellow-hover: #cc9900;
+    --terciary: var(--lilac);
+    --terciary-hover: var(--lilac-hover);
+    --quaternary: var(--dark-yellow);
+    --quaternary-hover: var(--dark-yellow-hover);
+    --action-btn-w: 250px;
+    --action-btn-h: 52px;
+}
+
+/* Reset & Base Styles */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+    color: var(--dark);
+    line-height: 1.6;
+    padding: 20px;
+    font-size: 6px;
+}
+
+/* Layout */
+.container {
+    background: white;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: 2rem;
+    margin: 1rem auto;
+    width: 100%;
+    max-width: 900px;
+    box-sizing: border-box;
+}
+
+/* Header container - USED */
+header.header-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto 1rem;
+    text-align: center;
+    padding: 0 2rem;
+}
+
+.container-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* results font-size scope */
+.results-container { font-size: 6px; }
+.displaybox-text.markdown-content { font-size: 0.6em; }
+
+/* Logo - USED in header */
+.logo {
+    width: 72px; 
+    height: 72px;
+    background: linear-gradient(135deg, #4F46E5 0%, #10B981 100%);
+    border-radius: 50%;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: white; 
+    font-size: 1rem; 
+    font-weight: 700;
+    box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.2);
+}
+
+/* Headings - USED */
+h1 {
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+}
+
+/* Buttons - USED */
+.btn {
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center;
+    padding: 0.75rem 1.5rem;    
+    font-size: 1rem; 
+    font-weight: 500;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: var(--transition);
+    border: none; 
+    cursor: pointer;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
+}
+
+/* Button variants - USED in HTML */
+.btn-primary { background-color: var(--primary); color: white; }
+.btn-primary:hover { background-color: var(--primary-hover); }
+.btn-secondary { background-color: var(--secondary); color: white; }
+.btn-secondary:hover { background-color: var(--secondary-hover); }
+.btn-terciary { background-color: var(--lilac); color: white; }
+.btn-terciary:hover { background-color: var(--lilac-hover); }
+.btn-quaternary { background-color: var(--dark-yellow); color: white; }
+.btn-quaternary:hover { background-color: var(--dark-yellow-hover); }
+.btn-five { background-color: rgb(2, 175, 206); color: white; }
+.btn-five:hover { background-color: rgb(2, 175, 206); }
+.btn-six { background-color: rgb(160, 101, 101); color: white; }
+.btn-six:hover { background-color: rgb(160, 101, 101); }
+.btn-8 { background-color: rgb(120, 120, 120); color: rgb(250, 255, 163); }
+.btn-8:hover { background-color: rgb(120, 120, 120); }
+.btn-10 { background-color: rgb(118, 151, 252); color: rgb(250, 255, 163); }
+.btn-10:hover { background-color: rgb(118, 151, 252); }
+
+/* Button group - USED */
+.btn-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.btn-group .btn {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+}
+
+/* Download buttons - USED in JavaScript */
+.download-buttons {
+    display: none;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+/* Individual download buttons - USED */
+.download-btn {
+    width: 100%;
+    max-width: 800px;
+    padding: 14px 18px;
+    font-size: 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    margin: 0 auto;
+    display: block;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+}
+
+/* PDF download button - USED */
+#downloadPDF {
+    background-color: #f76161;
+    color: white;
+    border-color: #d1d5da;
+}
+#downloadPDF:hover {
+    background-color: #721515;
+    border-color: #959da5;
+}
+
+/* Word download button - USED */
+#downloadDocx {
+    background-color: #3772c9;
+    color: white;
+    border-color: #1e3f6e;
+}
+#downloadDocx:hover { background-color: #173a6b; }
+
+/* Loading state for buttons - USED */
+button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none !important;
+}
+button:active { background-color: #298e46; }
+
+/* Search input - USED */
+.search-input {
+    width: 100%;
+    max-width: 800px;
+    padding: 14px 18px;
+    font-size: 1rem;
+    border: 2px solid #c6d9ff;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    margin: 0 auto;
+    display: block;
+    box-sizing: border-box;
+    justify-content: left;
+    align-items: left;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+}
+
+/* Search container - USED */
+.search-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.search-input-group {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    gap: 8px;
+    margin: 0 auto;
+    align-items: center;
+}
+.search-button {
+    width: 10px;
+    height: 20px;
+    padding: 0;
+    font-size: 1rem;
+    border: 2px solid #c6d9ff;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #3772c9;
+    color: white;
+    flex-shrink: 0;
+}
+.search-button:hover {
+    background-color: #48b148;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.search-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chat-send-btn {
+    width: 10px;
+    height: 20px;
+    padding: 0;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    background-color: #3772c9;
+    color: white;
+    border: 2px solid #c6d9ff;
+    transition: all 0.3s ease;
+}
+.chat-send-btn i { font-size: 1rem; line-height: 1; }
+.chat-send-btn:hover {
+    background-color: #48b148;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.chat-send-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.chat-send-btn:focus-visible {
+    outline: 3px solid rgba(76, 175, 80, 0.35);
+    outline-offset: 2px;
+    animation: glowPulse 1.8s ease-in-out infinite;
+}
+#searchButton.search-button .fa-book { font-size: 1.1em; }
+@keyframes glowPulse {
+    0% { box-shadow: 0 0 0 rgba(37,99,235,0.0); }
+    70% { box-shadow: 0 0 25px rgba(59,130,246,0.35); }
+    100% { box-shadow: 0 0 0 rgba(37,99,235,0.0); }
+}
+
+/* Results container - USED */
+.results { 
+    margin-top: 1rem; 
+    padding: 0; 
+    background: white; 
+    border-radius: 6px; 
+}
+
+/* Result item - USED */
+.result-item { 
+    padding: 1rem; 
+    margin-bottom: 1rem; 
+    border: none; 
+    background: transparent; 
+}
+
+/* Text Content Styling - USED */
+.text-content,
+.displaybox-content,
+.displaybox-container {
+    text-align: left !important;
+}
+.displaybox-content *,
+.displaybox-container * {
+    text-align: inherit !important;
+}
+
+.text-content {
+    white-space: pre-wrap;
+    line-height: 1.7;
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    margin: 0.5em 0;
+}
+.text-content p {
+    margin: 0.5em 0;
+    white-space: pre-wrap;
+    text-align: left;
+}
+
+/* Loading animation - USED */
+@keyframes pulse {
+    0% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.02); }
+    100% { opacity: 0.6; transform: scale(1); }
+}
+@keyframes dots {
+    0%, 20% { content: '.'; }
+    40% { content: '..'; }
+    60% { content: '...'; }
+    80%, 100% { content: ''; }
+}
+
+/* Loading container - USED */
+.loading-container {
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+.loading {
+    color: #8b5cf6;
+    font-style: italic;
+    font-weight: 500;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 16px;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    animation: pulse 2s infinite ease-in-out;
+    width: 100%;
+    max-width: 500px;
+}
+.loading::before,
+.loading::after {
+    content: '';
+    width: 30%;
+    height: 1px;
+    background: linear-gradient(90deg, #8b5cf6, #ec4899, #8b5cf6);
+    background-size: 200% 100%;
+    animation: loadingBar 2s linear infinite;
+    border-radius: 2px;
+}
+.loading span { display: inline-block; position: relative; padding: 0 10px; }
+.loading span::after {
+    content: '...';
+    display: inline-block;
+    width: 0;
+    position: relative;
+    animation: dots 1.5s steps(1, end) infinite;
+}
+@keyframes loadingBar {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Error state - USED */
+.error {
+    color: #dc2626;
+    background-color: #fef2f2;
+    padding: 1rem;
+    border-radius: 0.375rem;
+    margin: 1rem 0;
+}
+
+/* Meta info - USED */
+.meta-info { color: #6B7280; font-size: 0.85em; }
+
+/* ===== Display Box Components ===== */
+.displaybox-container {
+    margin-bottom: 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    overflow: hidden;
+    width: 100%;
+}
+.displaybox-content {
+    padding: 1.25rem;
+    text-align: left;
+}
+.displaybox-header {
+    background-color: #f6f6f6;
+    padding: 0rem 1rem;
+    margin: 0;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+}
+.displaybox-group {
+    margin-bottom: 1rem;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.displaybox-item {
+    padding: 1rem 1.25rem;
+    line-height: 1.6;
+}
+
+/* REMOVIDO o antigo:
+.displaybox-text { white-space: pre-line; display: inline; }
+*/
+
+/* Meta e sumário */
+.displaybox-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 0.25rem;
+    padding-top: 0.25rem;
+    font-size: 0.2em;
+    color: #7c7c7c;
+   
+}
+.displaybox-summary {
+    color: #7c7c7c;
+    margin-bottom: 1rem;
+    padding: 0.2rem 0;
+    font-size: 0.2em;
+    text-align: center;
+
+}
+
+/* Paragraph and Score Styles */
+.paragraph-marker {
+    color: #000000;
+    font-size: 0.2em;
+    margin-right: 0.5rem;
+    font-family: monospace;
+    opacity: 0.8;
+}
+.score-badge {
+    display: inline-flex;
+    align-items: center;    
+    color: #a10000;
+    padding: 0.2em 0.2em;
+    border-radius: 12px;
+    font-size: 0.4em;
+    margin-left: 0.5rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* Loading State (alt) */
+.loading {
+    color: #8b5cf6;
+    font-style: italic;
+    font-weight: 500;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 16px;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    animation: pulse 2s infinite ease-in-out;
+    width: 100%;
+}
+
+/* Search Options */
+.search-options {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+}
+
+.max-results {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.max-results label {
+    font-size: 0.9rem;
+    color: #4B5563;
+}
+
+.max-results input[type="number"] {
+    width: 60px;
+    padding: 0.4rem 0.5rem;
+    border: 1px solid #D1D5DB;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.max-results input[type="number"]:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+}
+
+/* === Search layout overrides === */
+.search-input-group { max-width: 100% !important; width: 100% !important; }
+.search-input { max-width: 100% !important; width: 100% !important; }
+
+/* Row below input: [empty] [DOCX centered] [Search right] */
+.action-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+.action-row .center { justify-self: center; }
+.action-row .right  { justify-self: end; }
+
+/* Ensure both action buttons have the same fixed size */
+#downloadDocx.download-btn {
+  width: var(--action-btn-w) !important;
+  height: var(--action-btn-h) !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.action-row .download-buttons { margin: 0; padding: 0; }
+
+/* Markdown basics */
+.markdown-content h1, .markdown-content h2, .markdown-content h3,
+.markdown-content h4, .markdown-content h5, .markdown-content h6 {
+  margin: 0.6em 0 0.4em;
+  line-height: 1;
+}
+.markdown-content p { margin: 0.4em 0; }
+.markdown-content p:first-child { margin-top: 0; }
+.markdown-content p:last-child  { margin-bottom: 0; }
+.markdown-content { white-space: normal; }
+.markdown-content ul, .markdown-content ol {
+  margin: 0.3em 1em;
+  padding-left: 1em;
+}
+.markdown-content li { margin: 0.25em 0; }
+.markdown-content code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.6em;
+  background: #f6f8fa;
+  padding: 0.15em 0.35em;
+  border-radius: 4px;
+}
+.markdown-content pre {
+  background: #f6f8fa;
+  padding: 0.75em 1em;
+  border-radius: 6px;
+  overflow: auto;
+}
+
+/* === ALINHAR TUDO NA MESMA LINHA (RESULTADOS) === */
+/* Mantém índice [n], texto (markdown) e badges na MESMA linha */
+.displaybox-item {
+    display: block;
+    align-items: flex-start;
+    gap: 8px;
+    flex-wrap: nowrap;       /* evita quebrar o grupo em outra linha */
+}
+/* Índice fixo */
+.displaybox-item .paragraph-marker {
+    flex: 0 0 auto;
+    line-height: 1;
+}
+/* Texto ocupa o restante; permite quebra interna sem empurrar badges */
+.displaybox-item .displaybox-text {
+    flex: 1 1 auto;
+    min-width: 0;           /* permite quebra/encolher dentro do flex */
+    display: block;
+    white-space: normal;
+}
+/* Primeiro bloco do markdown “cola” no índice */
+.displaybox-item .displaybox-text > p:first-child,
+.displaybox-item .displaybox-text > h1:first-child,
+.displaybox-item .displaybox-text > h2:first-child,
+.displaybox-item .displaybox-text > h3:first-child,
+.displaybox-item .displaybox-text > h4:first-child,
+.displaybox-item .displaybox-text > h5:first-child,
+.displaybox-item .displaybox-text > h6:first-child {
+    display: inline;
+    margin: 0;
+}
+/* Badges não esticam e não quebram */
+.displaybox-item .score-badge {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    margin-left: 6px;
+}
+
+/* Search container fancy button */
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 0;
+}
+#searchButton.search-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #fff;
+    background: linear-gradient(135deg, #28cca0, #1b896c, #0d382c);
+    background-size: 200% 200%;
+    border: none;
+    border-radius: 14px;
+    padding: 16px 28px;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 10px 20px rgba(37,99,235,0.30), 0 6px 10px rgba(0,0,0,0.10);
+    cursor: pointer;
+    transform: translateY(0);
+    transition: background-position 400ms ease, transform 150ms ease, box-shadow 150ms ease, filter 150ms ease;
+    width: 180px;
+    text-align: center;
+}
+#searchButton.search-button:hover {
+    background-position: 100% 0;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(37,99,235,0.35), 0 10px 16px rgba(0,0,0,0.12);
+    filter: saturate(1.1);
+}
+#searchButton.search-button:active {
+    transform: translateY(0);
+    box-shadow: 0 8px 16px rgba(37,99,235,0.30), 0 6px 10px rgba(0,0,0,0.10);
+}
+#searchButton.search-button:focus-visible {
+    outline: 3px solid rgba(59,130,246,0.5);
+    outline-offset: 3px;
+    animation: glowPulse 1.8s ease-in-out infinite;
+}
+#searchButton.search-button .fa-book { font-size: 1.1em; }
+@keyframes glowPulse {
+    0% { box-shadow: 0 0 0 rgba(37,99,235,0.0); }
+    70% { box-shadow: 0 0 25px rgba(59,130,246,0.35); }
+    100% { box-shadow: 0 0 0 rgba(37,99,235,0.0); }
+}
+
+/* Pensata button */
+#pensataButton, .pensata-button {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f2c94c, #f59e0b, #d97706);
+    color: #ffffff;
+    width: 100%;
+    max-width: 400px;
+    align-self: center;
+    justify-content: center;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 28px;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin: 0 auto;
+    height: 56px;
+    border: none;
+    border-radius: 12px;
+    background-size: 200% 200%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-position 0.4s ease;
+    box-shadow: 0 10px 15px -3px rgba(217, 119, 6, 0.25), 0 4px 6px -2px rgba(217, 119, 6, 0.15);
+    cursor: pointer;
+    transform: translateY(0);
+    transition: background-position 400ms ease, transform 150ms ease, box-shadow 150ms ease, filter 150ms ease;
+}
+#pensataButton:hover, .pensata-button:hover {
+    background-position: 100% 0;
+    transform: translateY(-2px);
+    box-shadow: 0 15px 25px -5px rgba(217, 119, 6, 0.35), 0 8px 10px -6px rgba(217, 119, 6, 0.25);
+}
+#pensataButton:active, .pensata-button:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 10px -4px rgba(217, 119, 6, 0.25), 0 3px 6px -4px rgba(217, 119, 6, 0.20);
+}
+#pensataButton:focus-visible, .pensata-button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.35), 0 10px 15px -3px rgba(217, 119, 6, 0.25);
+}
+/* brilho em varredura */
+#pensataButton::after, .pensata-button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 50%;
+    height: 200%;
+    background: linear-gradient(120deg, rgba(255,255,255,0), rgba(255,255,255,0.35), rgba(255,255,255,0));
+    transform: rotate(25deg);
+    transition: left 1s ease;
+    pointer-events: none;
+}
+#pensataButton:hover::after, .pensata-button:hover::after { left: 120%; }
+
+/* === Global Typography Override: force 8pt across modules === */
+html { font-size: 8pt !important; }
+body { font-size: 0.8rem !important; }
+
+
+/* Substitua a sua regra global por esta: */
+*:not(.fa):not(.fas):not(.far):not(.fab):not(.fal):not(.fad):not(.badge) {
+    font-size: inherit !important;
+  }
+  /* E controle o tamanho dos badges aqui: */
+  .badge { font-size: 0.70em; } /* ou nas variantes */
+  
+/* Keep icon fonts consistent (relative to parent) */
+.fa, .fas, .far, .fab, .fal, .fad { font-size: 1em !important; }
+
+/* === Global Line-Height Override: tighter spacing === */
+html { line-height: 1.2 !important; }
+body { line-height: inherit !important; }
+*, *::before, *::after { line-height: inherit !important; }
+
+.text-content,
+.text-content p,
+.displaybox-content,
+.displaybox-item,
+.displaybox-text,
+.paragraph-marker,
+.markdown-content,
+.markdown-content p,
+.markdown-content li { line-height: inherit !important; }
+
+/* Loading Spinner */
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.8);
+}
+.loading {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--dark);
+    font-weight: 500;
+}
+.loading::before {
+    content: '';
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid var(--primary);
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Ensure Font Awesome spinner is properly aligned */
+.fa-spinner, .fa-spin { margin-right: 0.5rem; }
+
+.displaybox-item {
+    display: block;
+    align-items: center;
+    gap: 0.5em;
+  }
+  
+  .paragraph-marker {
+    font-weight: 700;
+    white-space: nowrap; /* evita quebra */
+  }
+  
+  .displaybox-text {
+    flex: 1;              /* ocupa linha contínua */
+    display: inline;      /* força inline do conteúdo */
+  }
+  
+  .badges-group {
+    white-space: nowrap;  /* badges sempre à direita */
+    font-size: 0.75em;
+  }
+  
+/* Versão menor + verde claro */
+.small-green {
+  font-size: 0.75em;   /* fonte menor */
+}
+.small-green .badge {
+    font-size: 0.7em !important;       /* agora realmente diminui */
+    background-color: #dff5df; /* verde claro */
+    border: 1px solid #9ccf9c;
+    color: #1e4620;
+    border-radius: 999px;
+    padding: 0.1rem 0.4rem;
+    margin-left: 0.2em;
+  }
+  
+/* força conteúdo markdown a ser inline */
+.markdown-inline p {
+    display: inline;
+    margin: 0;
+  }
+  .markdown-inline * {
+    display: inline;
+  }
+  
+
+
+  /* === FIX badges: força tamanho menor, independente do global inherit === */
+.displaybox-item .badges-group.small-green .badge {
+    font-size: 0.70em !important;
+  }
+  
+  .displaybox-item .badge-score,
+  .displaybox-item .badge-para,
+  .displaybox-item .badge-meta {
+    font-size: 0.70em !important; /* se você usa variações por cor */
+  }
+
+  
+
+  .header-text {
+    color: #1e40af; /* azul mais elegante */
+    /*font-weight: 600;*/
+    font-size: 0.6rem; /* mantém legível, alinhado com displaybox */
+    line-height: 1.4;
+    margin-bottom: 0.25rem; /* separação mínima do texto abaixo */
+    display: block; /* garante que apareça em linha própria acima do texto */
+  }
+  
+  /* Book Selection Styles */
+.book-selection {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.book-selection h3 {
+    margin-bottom: 0.75rem;
+    color: var(--dark);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.book-checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+}
+
+.book-checkboxes label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--dark);
+    transition: var(--transition);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+.book-checkboxes label:hover {
+    background-color: #e9ecef;
+}
+
+.book-checkboxes input[type="checkbox"] {
+    cursor: pointer;
+    width: 1.1em;
+    height: 1.1em;
+    accent-color: var(--primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .book-checkboxes {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .book-checkboxes label {
+        padding: 0.5rem 0.75rem;
+    }
+}
+
+
+
+.meta-info-row {
+    display: flex;
+    gap: 8px; /* espaço entre os badges */
+    flex-wrap: wrap; /* quebra de linha caso a tela seja estreita */
+  }
+  
+/* Search Options */
+.search-options {
+    margin: 10px 0 20px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.option-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+}
+
+.option-label input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.option-label:hover {
+    color: #0056b3;
+}
+
+
+/* Ensure the container has proper layout */
+.metadata-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 5px !important;
+    margin-top: 10px !important;
+    align-items: center !important;
+}
+
+/* Make sure badges are properly displayed */
+.metadata-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 0.4rem !important;
+    color: #000000 !important;
+    background-color: #e7ffe2 !important;
+    border-radius: 4px !important;
+    border: 1px solid rgb(200, 200, 200) !important;
+    padding: 2px 6px !important;
+    margin: 2px !important;
+    white-space: nowrap !important;
+    line-height: 1.2 !important;
+    height: auto !important;
+}
+
+/* Specific badge colors */
+.metadata-badge.estilo1 { background-color: #fff0d4 !important; color: #000000 !important; }
+.metadata-badge.estilo2 { background-color: #e7ffe2 !important; color: #000000 !important; }
+.metadata-badge.estilo3 { background-color: #e7ffe2 !important; color: #000000 !important; }
+.metadata-badge.estilo4 { background-color: #e7ffe2 !important; color: #000000 !important; }
+.metadata-badge.estilo5 { background-color: #e7ffe2 !important; color: #000000 !important; }
