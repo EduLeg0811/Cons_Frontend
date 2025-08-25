@@ -48,6 +48,11 @@ FRONTEND_ORIGINS = [
     "http://localhost:5173",  # se usar Vite/Dev server
     "http://127.0.0.1:5500",  # se usar Live Server
     "http://localhost:5500",  # se usar Live Server
+    "https://cons-ai-server\.onrender\.com$",
+    "http://localhost:\d+$",
+    "http://127\.0\.0\.1:\d+$",
+    "https://.*\.webcontainer-api\.io$",  # Allow all WebContainer domains
+    "https://.*\.local-credentialless\.webcontainer-api\.io$",  # Specific WebContainer pattern
 ]
 CORS(
     app,
