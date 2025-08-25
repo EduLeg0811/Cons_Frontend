@@ -86,13 +86,11 @@ const PROD_BASE  = 'https://cons-ai-server.onrender.com';       // backend Rende
 
 
 function resolveApiBaseUrl() {
-  
     return { base: PROD_BASE, mode: 'production' };
 }
 
 
 const { base: apiBaseUrl, mode } = resolveApiBaseUrl();
-
 // Log explícito do modo, base e origem da página
 const origin = location.origin || 'file://';
 console.log(`[API] mode=${mode} | base=${apiBaseUrl} | origin=${origin}`);
