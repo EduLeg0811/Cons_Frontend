@@ -2,7 +2,6 @@
 import os
 import sys
 import threading
-import webbrowser
 from pathlib import Path
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 
@@ -11,7 +10,6 @@ BACKEND_HOST  = os.getenv("DEV_HOST", "127.0.0.1")
 BACKEND_PORT  = int(os.getenv("DEV_PORT", "5000"))
 FRONTEND_HOST = os.getenv("DEV_FRONT_HOST", "127.0.0.1")
 FRONTEND_PORT = int(os.getenv("DEV_FRONT_PORT", "5500"))
-OPEN_BROWSER  = os.getenv("DEV_OPEN_BROWSER", "1") == "1"
 
 # Caminhos fixos
 ROOT_DIR     = Path(__file__).parent.resolve()
@@ -42,9 +40,7 @@ def main():
 
     serve_frontend()
 
-    if OPEN_BROWSER:
-        url = f"http://{FRONTEND_HOST}:{FRONTEND_PORT}/{ENTRY_FILE}"
-        threading.Timer(0.5, lambda: webbrowser.open(url)).start()
+    # Removed the browser opening logic as it's not supported in this environment
 
     from app import app as flask_app
     print(f"[DEV] Backend:  http://{BACKEND_HOST}:{BACKEND_PORT}")
