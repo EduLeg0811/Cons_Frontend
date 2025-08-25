@@ -1,0 +1,47 @@
+# Base backend deps (Python 3.13) — sem LangChain/FAISS
+# Objetivo: evitar builds nativos (sem NumPy/FAISS) e manter o app rodando
+
+# Web framework (estáveis; flutuar dentro do major)
+Flask>=2.3,<3.0
+Flask-RESTful==0.3.10           # PIN: lib antiga, sensível a mudanças no Flask
+Flask-CORS>=4.0,<5.0
+# Production WSGI server
+gunicorn>=21,<22
+
+# Environment management
+python-dotenv>=1.0,<2.0
+
+# OpenAI SDK (API v1)
+openai>=1.30,<2.0
+
+# Document processing
+python-docx>=1.1.0,<2.0
+# lxml 5.x possui wheels para Python 3.13 (evita compilação)
+lxml>=5.2,<6.0
+
+
+# Windows COM — apenas no Windows
+pywin32>=306; platform_system=="Windows"
+
+
+# AI/ML Dependencies
+langchain
+langchain-community
+langchain-openai
+openai
+faiss-cpu  # For vector search
+
+
+# Utilities
+python-multipart==0.0.6  # For file uploads
+python-slugify==8.0.1  # For URL-safe strings
+
+# Make sure to set your OpenAI API key in environment variables
+# OPENAI_API_KEY=your-api-key-here
+
+
+html2docx
+python-docx
+markdown
+beautifulsoup4
+psutil
