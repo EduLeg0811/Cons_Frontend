@@ -1,49 +1,34 @@
-# start.py — DEV local minimalista (Flask + HTTP estático)
+# start.py — WebContainer-compatible version (Flask backend only)
 import os
 import sys
-import threading
-from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 
-# Config
-BACKEND_HOST  = os.getenv("DEV_HOST", "127.0.0.1")
-BACKEND_PORT  = int(os.getenv("DEV_PORT", "5000"))
-FRONTEND_HOST = os.getenv("DEV_FRONT_HOST", "127.0.0.1")
-FRONTEND_PORT = int(os.getenv("DEV_FRONT_PORT", "5500"))
-
-# Caminhos fixos
-ROOT_DIR     = os.path.abspath(os.path.dirname(__file__))
-BACKEND_DIR  = os.path.join(ROOT_DIR, "backend")
-FRONTEND_DIR = os.path.join(ROOT_DIR, "frontend")
-ENTRY_FILE   = "index.html"  # já confirmado que existe aqui
-
-def serve_frontend():
-    class StaticHandler(SimpleHTTPRequestHandler):
-        def __init__(self, *args, **kwargs):
-            super().__init__(*args, directory=str(FRONTEND_DIR), **kwargs)
-
-        def do_GET(self):
-            if self.path in ("/", "/index.html"):
-                self.path = "/" + ENTRY_FILE
-            return super().do_GET()
-
-    httpd = ThreadingHTTPServer((FRONTEND_HOST, FRONTEND_PORT), StaticHandler)
-
-    def _run():
-        print(f"[DEV] Frontend: http://{FRONTEND_HOST}:{FRONTEND_PORT}/{ENTRY_FILE}")
-        httpd.serve_forever()
-
-    threading.Thread(target=_run, name="frontend-http", daemon=True).start()
+# Add backend directory to Python path
+ROOT_DIR = os.path.abspath(os.path.dirname(__file__))
+BACKEND_DIR = os.path.join(ROOT_DIR, "backend")
+sys.path.insert(0, BACKEND_DIR)
 
 def main():
-    sys.path.insert(0, str(BACKEND_DIR))
-
-    serve_frontend()
-
-    # Removed the browser opening logic as it's not supported in this environment
-
-    from app import app as flask_app
-    print(f"[DEV] Backend:  http://{BACKEND_HOST}:{BACKEND_PORT}")
-    flask_app.run(host=BACKEND_HOST, port=BACKEND_PORT, debug=True, use_reloader=False)
+    # Configuration
+    BACKEND_HOST = os.getenv("DEV_HOST", "0.0.0.0")  # Use 0.0.0.0 for WebContainer
+    BACKEND_PORT = int(os.getenv("DEV_PORT", "5000"))
+    
+    print(f"[DEV] Starting Flask backend on {BACKEND_HOST}:{BACKEND_PORT}")
+    print(f"[DEV] Frontend files are in: {os.path.join(ROOT_DIR, 'frontend')}")
+    print(f"[DEV] Open frontend/index.html in Bolt's preview to access the application")
+    
+    # Import and run Flask app
+    try:
+        from app import app as flask_app
+        flask_app.run(
+            host=BACKEND_HOST, 
+            port=BACKEND_PORT, 
+            debug=True, 
+            use_reloader=False,
+            threaded=True
+        )
+    except Exception as e:
+        print(f"Error starting Flask app: {e}")
+        return 1
 
 if __name__ == "__main__":
     main()
