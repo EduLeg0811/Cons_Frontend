@@ -86,8 +86,9 @@ const PROD_BASE  = 'https://cons-ai-server.onrender.com';       // backend Rende
 
 
 function resolveApiBaseUrl() {
-  // Força sempre retornar o servidor de produção
-  return { base: PROD_BASE, mode: 'production' };
+  
+    return { base: PROD_BASE, mode: 'production' };
+}
 
 
 const { base: apiBaseUrl, mode } = resolveApiBaseUrl();
