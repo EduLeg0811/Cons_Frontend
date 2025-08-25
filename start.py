@@ -2,7 +2,6 @@
 import os
 import sys
 import threading
-from pathlib import Path
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 
 # Config
@@ -12,9 +11,9 @@ FRONTEND_HOST = os.getenv("DEV_FRONT_HOST", "127.0.0.1")
 FRONTEND_PORT = int(os.getenv("DEV_FRONT_PORT", "5500"))
 
 # Caminhos fixos
-ROOT_DIR     = Path(__file__).parent.resolve()
-BACKEND_DIR  = ROOT_DIR / "backend"
-FRONTEND_DIR = ROOT_DIR / "frontend"
+ROOT_DIR     = os.path.abspath(os.path.dirname(__file__))
+BACKEND_DIR  = os.path.join(ROOT_DIR, "backend")
+FRONTEND_DIR = os.path.join(ROOT_DIR, "frontend")
 ENTRY_FILE   = "index.html"  # já confirmado que existe aqui
 
 def serve_frontend():

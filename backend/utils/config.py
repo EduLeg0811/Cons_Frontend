@@ -1,6 +1,5 @@
 import os
 from dotenv import load_dotenv
-from pathlib import Path
 
 load_dotenv()
     
@@ -36,11 +35,11 @@ DEFAULT_VECTOR_STORE_OPENAI=OPENAI_ID_ALLCONS
 # ================================================================
 # => este arquivo está em: .../Simple_v23/backend/config.py
 # Portanto, BASE_DIR = .../Simple_v23/backend
-# Base directory = .../backend  (2 níveis acima do arquivo utils/config.py)
-BASE_DIR = Path(__file__).parent.parent.resolve()
+# Base directory = .../backend  (1 nível acima do arquivo utils/config.py)
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
 
-FILES_SEARCH_DIR = Path(os.getenv("FILES_SEARCH_DIR", BASE_DIR / "files")).resolve()
-FAISS_INDEX_DIR  = Path(os.getenv("FAISS_INDEX_DIR",  BASE_DIR / "faiss_index")).resolve()
+FILES_SEARCH_DIR = os.path.abspath(os.path.join(BASE_DIR, os.getenv("FILES_SEARCH_DIR", "files")))
+FAISS_INDEX_DIR  = os.path.abspath(os.path.join(BASE_DIR, os.getenv("FAISS_INDEX_DIR", "faiss_index")))
 
 
 INSTRUCTIONS_LLM_BACKEND = "Você é um assistente da Conscienciologia no estilo ChatGPT."
