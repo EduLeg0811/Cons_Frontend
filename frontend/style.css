@@ -1,877 +1,659 @@
-/* Base Variables */
+/* ===================================================================
+   MODERN FRONTEND REDESIGN - CONS.AI
+   ===================================================================
+   Updated: Modern, clean, and intuitive design
+   Changes: Improved typography, colors, spacing, and component styling
+   ================================================================= */
+
+/* ===================================================================
+   BASE VARIABLES - Updated Color Palette and Spacing
+   ================================================================= */
 :root {
-    --primary: #4F46E5;
-    --primary-hover: #4338CA;
-    --secondary: #10B981;
-    --secondary-hover: #0D9F6E;
-    --dark: #1F2937;
-    --light: #F9FAFB;
-    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --lilac: #9d4edd;
-    --lilac-hover: #7b2cbf;
-    --dark-yellow: #e6b800;
-    --dark-yellow-hover: #cc9900;
+    /* Primary Colors - Modern blue palette */
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --primary-light: #dbeafe;
+    
+    /* Secondary Colors - Modern green palette */
+    --secondary: #059669;
+    --secondary-hover: #047857;
+    --secondary-light: #d1fae5;
+    
+    /* Accent Colors */
+    --lilac: #8b5cf6;
+    --lilac-hover: #7c3aed;
+    --dark-yellow: #f59e0b;
+    --dark-yellow-hover: #d97706;
     --terciary: var(--lilac);
     --terciary-hover: var(--lilac-hover);
     --quaternary: var(--dark-yellow);
     --quaternary-hover: var(--dark-yellow-hover);
+    
+    /* Text Colors - Improved contrast and readability */
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
+    --text-muted: #9ca3af;
+    
+    /* Background Colors - Softer, more modern palette */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f9fafb;
+    --bg-tertiary: #f3f4f6;
+    --bg-accent: #fef3c7;
+    
+    /* Border Colors - Subtle and consistent */
+    --border-light: #e5e7eb;
+    --border-medium: #d1d5db;
+    --border-dark: #9ca3af;
+    
+    /* Shadows - Modern depth */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    
+    /* Transitions and Animation */
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s ease-in-out;
+    
+    /* Spacing System - Consistent 8px grid */
+    --space-xs: 0.25rem;  /* 4px */
+    --space-sm: 0.5rem;   /* 8px */
+    --space-md: 1rem;     /* 16px */
+    --space-lg: 1.5rem;   /* 24px */
+    --space-xl: 2rem;     /* 32px */
+    --space-2xl: 3rem;    /* 48px */
+    
+    /* Component Sizes */
     --action-btn-w: 250px;
     --action-btn-h: 52px;
+    --border-radius: 8px;
+    --border-radius-lg: 12px;
 }
 
-/* Reset & Base Styles */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* ===================================================================
+   RESET & BASE STYLES - Improved Foundation
+   ================================================================= */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
 
+/* Updated base typography - Much more readable */
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-size: 16px; /* Increased from 6px for readability */
+    line-height: 1.6; /* Improved line height */
+    color: var(--text-primary);
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
     min-height: 100vh;
-    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
-    color: var(--dark);
-    line-height: 1.6;
-    padding: 20px;
-    font-size: 6px;
+    padding: var(--space-lg);
 }
 
-/* Layout */
+/* Remove problematic global font-size overrides */
+html { 
+    font-size: 16px; /* Standard base size */
+}
+
+/* ===================================================================
+   LAYOUT COMPONENTS - Improved Structure
+   ================================================================= */
+
+/* Updated container with better spacing and modern card design */
 .container {
-    background: white;
-    border-radius: 16px;
+    background: var(--bg-primary);
+    border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow);
-    padding: 2rem;
-    margin: 1rem auto;
+    padding: var(--space-xl);
+    margin: var(--space-md) auto;
     width: 100%;
     max-width: 900px;
-    box-sizing: border-box;
+    border: 1px solid var(--border-light); /* Added subtle border */
 }
 
-/* Header container - USED */
+/* Improved header container */
 header.header-container {
     width: 100%;
     max-width: 1200px;
-    margin: 2rem auto 1rem;
+    margin: var(--space-xl) auto var(--space-md);
     text-align: center;
-    padding: 0 2rem;
+    padding: 0 var(--space-xl);
 }
 
+/* Enhanced container wrapper with better spacing */
 .container-wrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 var(--space-md);
+    gap: var(--space-lg); /* Added consistent gap between containers */
 }
 
-/* results font-size scope */
-.results-container { font-size: 6px; }
-.displaybox-text.markdown-content { font-size: 0.6em; }
+/* ===================================================================
+   TYPOGRAPHY - Improved Hierarchy and Readability
+   ================================================================= */
 
-/* Logo - USED in header */
+/* Enhanced logo with modern gradient */
 .logo {
-    width: 72px; 
-    height: 72px;
-    background: linear-gradient(135deg, #4F46E5 0%, #10B981 100%);
+    width: 80px; /* Slightly larger */
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
     border-radius: 50%;
     display: flex; 
     align-items: center; 
     justify-content: center;
-    margin: 0 auto 1.5rem;
+    margin: 0 auto var(--space-lg);
     color: white; 
-    font-size: 1rem; 
+    font-size: 1.5rem; /* Increased size */
     font-weight: 700;
-    box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.2);
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition);
 }
 
-/* Headings - USED */
+.logo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Improved heading hierarchy */
 h1 {
-    color: var(--dark);
-    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: var(--space-lg);
     font-weight: 700;
+    font-size: 2.5rem; /* Increased from default */
     line-height: 1.2;
     text-align: center;
 }
 
-/* Buttons - USED */
+h2 {
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1.3;
+    text-align: center;
+}
+
+h3 {
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.4;
+}
+
+/* ===================================================================
+   BUTTON COMPONENTS - Modern and Consistent Design
+   ================================================================= */
+
+/* Enhanced base button styles */
 .btn {
     display: inline-flex; 
     align-items: center; 
     justify-content: center;
-    padding: 0.75rem 1.5rem;    
+    padding: var(--space-md) var(--space-lg); /* Consistent padding */
     font-size: 1rem; 
     font-weight: 500;
-    border-radius: 8px;
+    border-radius: var(--border-radius);
     text-decoration: none;
     transition: var(--transition);
     border: none; 
     cursor: pointer;
-    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
+    box-shadow: var(--shadow-sm);
+    min-height: 48px; /* Improved touch target */
+    gap: var(--space-sm); /* Space between icon and text */
 }
 
-/* Button variants - USED in HTML */
-.btn-primary { background-color: var(--primary); color: white; }
-.btn-primary:hover { background-color: var(--primary-hover); }
-.btn-secondary { background-color: var(--secondary); color: white; }
-.btn-secondary:hover { background-color: var(--secondary-hover); }
-.btn-terciary { background-color: var(--lilac); color: white; }
-.btn-terciary:hover { background-color: var(--lilac-hover); }
-.btn-quaternary { background-color: var(--dark-yellow); color: white; }
-.btn-quaternary:hover { background-color: var(--dark-yellow-hover); }
-.btn-five { background-color: rgb(2, 175, 206); color: white; }
-.btn-five:hover { background-color: rgb(2, 175, 206); }
-.btn-six { background-color: rgb(160, 101, 101); color: white; }
-.btn-six:hover { background-color: rgb(160, 101, 101); }
-.btn-8 { background-color: rgb(120, 120, 120); color: rgb(250, 255, 163); }
-.btn-8:hover { background-color: rgb(120, 120, 120); }
-.btn-10 { background-color: rgb(118, 151, 252); color: rgb(250, 255, 163); }
-.btn-10:hover { background-color: rgb(118, 151, 252); }
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow);
+}
 
-/* Button group - USED */
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Updated button variants with modern colors */
+.btn-primary { 
+    background-color: var(--primary); 
+    color: white; 
+}
+.btn-primary:hover { 
+    background-color: var(--primary-hover); 
+}
+
+.btn-secondary { 
+    background-color: var(--secondary); 
+    color: white; 
+}
+.btn-secondary:hover { 
+    background-color: var(--secondary-hover); 
+}
+
+.btn-terciary { 
+    background-color: var(--lilac); 
+    color: white; 
+}
+.btn-terciary:hover { 
+    background-color: var(--lilac-hover); 
+}
+
+.btn-quaternary { 
+    background-color: var(--dark-yellow); 
+    color: white; 
+}
+.btn-quaternary:hover { 
+    background-color: var(--dark-yellow-hover); 
+}
+
+/* Additional button variants with improved colors */
+.btn-five { 
+    background-color: #0ea5e9; 
+    color: white; 
+}
+.btn-five:hover { 
+    background-color: #0284c7; 
+}
+
+.btn-six { 
+    background-color: #dc2626; 
+    color: white; 
+}
+.btn-six:hover { 
+    background-color: #b91c1c; 
+}
+
+.btn-8 { 
+    background-color: var(--text-secondary); 
+    color: white; 
+}
+.btn-8:hover { 
+    background-color: var(--text-primary); 
+}
+
+.btn-10 { 
+    background-color: #6366f1; 
+    color: white; 
+}
+.btn-10:hover { 
+    background-color: #4f46e5; 
+}
+
+/* Enhanced button group with better spacing */
 .btn-group {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: var(--space-md); /* Consistent gap */
     align-items: center;
-    margin-top: 20px;
+    margin-top: var(--space-lg);
 }
 
 .btn-group .btn {
     width: 100%;
-    max-width: 300px;
+    max-width: 320px; /* Slightly wider for better proportion */
     text-align: center;
 }
 
-/* Download buttons - USED in JavaScript */
-.download-buttons {
-    display: none;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
-    width: 100%;
-}
+/* ===================================================================
+   FORM COMPONENTS - Modern Input Design
+   ================================================================= */
 
-/* Individual download buttons - USED */
-.download-btn {
-    width: 100%;
-    max-width: 800px;
-    padding: 14px 18px;
-    font-size: 1rem;
-    border: 2px solid #e5e7eb;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    margin: 0 auto;
-    display: block;
-    box-sizing: border-box;
-    justify-content: center;
-    align-items: center;
-}
-
-/* PDF download button - USED */
-#downloadPDF {
-    background-color: #f76161;
-    color: white;
-    border-color: #d1d5da;
-}
-#downloadPDF:hover {
-    background-color: #721515;
-    border-color: #959da5;
-}
-
-/* Word download button - USED */
-#downloadDocx {
-    background-color: #3772c9;
-    color: white;
-    border-color: #1e3f6e;
-}
-#downloadDocx:hover { background-color: #173a6b; }
-
-/* Loading state for buttons - USED */
-button:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-    transform: none !important;
-}
-button:active { background-color: #298e46; }
-
-/* Search input - USED */
+/* Enhanced search input with modern styling */
 .search-input {
     width: 100%;
     max-width: 800px;
-    padding: 14px 18px;
+    padding: var(--space-md) var(--space-lg); /* Consistent padding */
     font-size: 1rem;
-    border: 2px solid #c6d9ff;
-    border-radius: 10px;
-    transition: all 0.3s ease;
+    border: 2px solid var(--border-light);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
     margin: 0 auto;
     display: block;
     box-sizing: border-box;
-    justify-content: left;
-    align-items: left;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: inherit; /* Use system font */
 }
 
-/* Search container - USED */
+.search-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.search-input::placeholder {
+    color: var(--text-muted);
+}
+
+/* Improved search container layout */
 .search-container {
     width: 100%;
     max-width: 900px;
-    margin: 0 auto 20px;
+    margin: 0 auto var(--space-lg);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: var(--space-md);
 }
+
 .search-input-group {
+    /* UPDATED: Modern search input group with integrated button */
     width: 100%;
     max-width: 800px;
-    display: flex;
-    gap: 8px;
+    position: relative;
     margin: 0 auto;
-    align-items: center;
-}
-.search-button {
-    width: 10px;
-    height: 20px;
-    padding: 0;
-    font-size: 1rem;
-    border: 2px solid #c6d9ff;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    margin: 0;
     display: flex;
     align-items: center;
-    justify-content: center;
-    background-color: #3772c9;
-    color: white;
-    flex-shrink: 0;
-}
-.search-button:hover {
-    background-color: #48b148;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-.search-button:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Enhanced search button with modern circular design */
+.search-button,
 .chat-send-btn {
-    width: 10px;
-    height: 20px;
+    /* UPDATED: Modern integrated search button like ChatGPT/Gemini */
+    position: absolute;
+    right: 8px; /* Position inside the input field */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
     padding: 0;
-    border-radius: 10px;
+    border-radius: 50%;
+    display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #3772c9;
+    background: linear-gradient(135deg, var(--primary), var(--primary-hover));
     color: white;
-    border: 2px solid #c6d9ff;
-    transition: all 0.3s ease;
+    border: none;
+    transition: var(--transition);
+    flex-shrink: 0;
+    box-shadow: var(--shadow-sm);
+    z-index: 10; /* Ensure button appears above input */
+    cursor: pointer;
 }
-.chat-send-btn i { font-size: 1rem; line-height: 1; }
+
+.search-button:hover,
 .chat-send-btn:hover {
-    background-color: #48b148;
+    background: linear-gradient(135deg, var(--primary-hover), var(--primary));
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
 }
+
+.search-button:active,
 .chat-send-btn:active {
     transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.chat-send-btn:focus-visible {
-    outline: 3px solid rgba(76, 175, 80, 0.35);
-    outline-offset: 2px;
-    animation: glowPulse 1.8s ease-in-out infinite;
-}
-#searchButton.search-button .fa-book { font-size: 1.1em; }
-@keyframes glowPulse {
-    0% { box-shadow: 0 0 0 rgba(37,99,235,0.0); }
-    70% { box-shadow: 0 0 25px rgba(59,130,246,0.35); }
-    100% { box-shadow: 0 0 0 rgba(37,99,235,0.0); }
 }
 
-/* Results container - USED */
-.results { 
-    margin-top: 1rem; 
-    padding: 0; 
-    background: white; 
-    border-radius: 6px; 
+.search-button i,
+.chat-send-btn i { 
+    font-size: 1.1rem; 
+    line-height: 1; 
 }
 
-/* Result item - USED */
-.result-item { 
-    padding: 1rem; 
-    margin-bottom: 1rem; 
-    border: none; 
-    background: transparent; 
-}
-
-/* Text Content Styling - USED */
-.text-content,
-.displaybox-content,
-.displaybox-container {
-    text-align: left !important;
-}
-.displaybox-content *,
-.displaybox-container * {
-    text-align: inherit !important;
-}
-
-.text-content {
-    white-space: pre-wrap;
-    line-height: 1.7;
-    color: #333;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    max-width: 100%;
-    overflow-wrap: break-word;
-    margin: 0.5em 0;
-}
-.text-content p {
-    margin: 0.5em 0;
-    white-space: pre-wrap;
-    text-align: left;
-}
-
-/* Loading animation - USED */
-@keyframes pulse {
-    0% { opacity: 0.6; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.02); }
-    100% { opacity: 0.6; transform: scale(1); }
-}
-@keyframes dots {
-    0%, 20% { content: '.'; }
-    40% { content: '..'; }
-    60% { content: '...'; }
-    80%, 100% { content: ''; }
-}
-
-/* Loading container - USED */
-.loading-container {
-    width: 100%;
-    margin: 20px 0;
-    display: flex;
+/* ===================================================================
+   DOWNLOAD COMPONENTS - Improved Button Design
+   ================================================================= */
+    /* UPDATED: Adjusted padding to accommodate integrated button */
+    padding: var(--space-md) 60px var(--space-md) var(--space-lg); /* Extra right padding for button */
+.download-buttons {
+    display: none;
     justify-content: center;
-}
-.loading {
-    color: #8b5cf6;
-    font-style: italic;
-    font-weight: 500;
-    text-align: center;
-    padding: 15px 0;
-    font-size: 16px;
-    background: transparent;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    animation: pulse 2s infinite ease-in-out;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
     width: 100%;
-    max-width: 500px;
-}
-.loading::before,
-.loading::after {
-    content: '';
-    width: 30%;
-    height: 1px;
-    background: linear-gradient(90deg, #8b5cf6, #ec4899, #8b5cf6);
-    background-size: 200% 100%;
-    animation: loadingBar 2s linear infinite;
-    border-radius: 2px;
-}
-.loading span { display: inline-block; position: relative; padding: 0 10px; }
-.loading span::after {
-    content: '...';
-    display: inline-block;
-    width: 0;
-    position: relative;
-    animation: dots 1.5s steps(1, end) infinite;
-}
-@keyframes loadingBar {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
 }
 
-/* Error state - USED */
-.error {
-    color: #dc2626;
-    background-color: #fef2f2;
-    padding: 1rem;
-    border-radius: 0.375rem;
-    margin: 1rem 0;
+/* Improved download button styling */
+.download-btn {
+    width: 100%;
+    max-width: 300px; /* Reasonable max width */
+    padding: var(--space-md) var(--space-lg);
+    font-size: 1rem;
+    border: 2px solid var(--border-light);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    box-sizing: border-box;
+    min-height: 48px;
 }
 
-/* Meta info - USED */
-.meta-info { color: #6B7280; font-size: 0.85em; }
+    /* UPDATED: Modern input styling similar to ChatGPT/Gemini */
+    border-radius: 24px; /* More rounded for modern look */
+    min-height: 56px; /* Consistent height for better UX */
+/* Specific download button variants */
+#downloadPDF {
+    background-color: #ef4444;
+    color: white;
+    border-color: #dc2626;
+}
+#downloadPDF:hover {
+    background-color: #dc2626;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow);
+}
 
-/* ===== Display Box Components ===== */
+#downloadDocx {
+    background-color: var(--primary);
+    color: white;
+    border-color: var(--primary-hover);
+}
+#downloadDocx:hover { 
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow);
+}
+
+/* Disabled button state */
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* ===================================================================
+   RESULTS DISPLAY - Modern Card Design
+   ================================================================= */
+
+/* Enhanced results container */
+.results { 
+    margin-top: var(--space-md); 
+    padding: 0; 
+    background: transparent; /* Let individual cards have backgrounds */
+}
+
+/* Modern displaybox container with card design */
 .displaybox-container {
-    margin-bottom: 1rem;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    margin-bottom: var(--space-md);
+    background: var(--bg-primary);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
     overflow: hidden;
     width: 100%;
+    border: 1px solid var(--border-light); /* Added subtle border */
 }
+
 .displaybox-content {
-    padding: 1.25rem;
+    padding: var(--space-lg);
     text-align: left;
+    line-height: 1.7; /* Improved readability */
 }
+
+/* Enhanced displaybox header */
 .displaybox-header {
-    background-color: #f6f6f6;
-    padding: 0rem 1rem;
+    background-color: var(--bg-tertiary);
+    padding: var(--space-md) var(--space-lg);
     margin: 0;
     font-size: 1.1rem;
+    font-weight: 600;
     display: flex;
     justify-content: space-between;
-    align-items: left;
+    align-items: center;
+    border-bottom: 1px solid var(--border-light); /* Added separator */
+    color: var(--text-primary);
 }
+
+/* Improved displaybox group */
 .displaybox-group {
-    margin-bottom: 1rem;
-    border: 1px solid #e9ecef;
-    border-radius: 8px;
+    margin-bottom: var(--space-md);
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius);
     overflow: hidden;
+    background: var(--bg-primary);
 }
+
+/* Enhanced displaybox item with better separation */
 .displaybox-item {
-    padding: 1rem 1.25rem;
+    padding: var(--space-lg);
     line-height: 1.6;
+    border-bottom: 1px dashed var(--border-light); /* Added dashed separator */
+    display: block;
+    align-items: flex-start;
+    gap: var(--space-sm);
 }
 
-/* REMOVIDO o antigo:
-.displaybox-text { white-space: pre-line; display: inline; }
-*/
-
-/* Meta e sumário */
-.displaybox-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
-    margin-top: 0.25rem;
-    padding-top: 0.25rem;
-    font-size: 0.2em;
-    color: #7c7c7c;
-   
-}
-.displaybox-summary {
-    color: #7c7c7c;
-    margin-bottom: 1rem;
-    padding: 0.2rem 0;
-    font-size: 0.2em;
-    text-align: center;
-
+.displaybox-item:last-child {
+    border-bottom: none; /* Remove border from last item */
 }
 
-/* Paragraph and Score Styles */
-.paragraph-marker {
-    color: #000000;
-    font-size: 0.2em;
-    margin-right: 0.5rem;
-    font-family: monospace;
-    opacity: 0.8;
+/* ===================================================================
+   METADATA AND BADGES - Improved Visibility
+   ================================================================= */
+
+/* Enhanced metadata badges with better readability */
+.metadata-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 0.75rem !important; /* Increased from 0.4rem */
+    color: var(--text-primary) !important;
+    background-color: var(--bg-tertiary) !important;
+    border-radius: var(--space-xs) !important;
+    border: 1px solid var(--border-light) !important;
+    padding: var(--space-xs) var(--space-sm) !important;
+    margin: var(--space-xs) !important;
+    white-space: nowrap !important;
+    line-height: 1.2 !important;
+    height: auto !important;
+    font-weight: 500 !important; /* Added font weight */
 }
+
+/* Specific badge color variants for better distinction */
+.metadata-badge.estilo1 { 
+    background-color: var(--bg-accent) !important; 
+    border-color: #f59e0b !important;
+    color: #92400e !important;
+}
+.metadata-badge.estilo2 { 
+    background-color: var(--secondary-light) !important; 
+    border-color: var(--secondary) !important;
+    color: #065f46 !important;
+}
+.metadata-badge.estilo3 { 
+    background-color: var(--primary-light) !important; 
+    border-color: var(--primary) !important;
+    color: #1e40af !important;
+}
+.metadata-badge.estilo4 { 
+    background-color: #fce7f3 !important; 
+    border-color: #ec4899 !important;
+    color: #be185d !important;
+}
+.metadata-badge.estilo5 { 
+    background-color: #f3e8ff !important; 
+    border-color: var(--lilac) !important;
+    color: #6b21a8 !important;
+}
+
+/* Enhanced metadata container */
+.metadata-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: var(--space-xs) !important;
+    margin-top: var(--space-md) !important;
+    align-items: center !important;
+}
+
+/* Improved score badge */
 .score-badge {
     display: inline-flex;
     align-items: center;    
-    color: #a10000;
-    padding: 0.2em 0.2em;
-    border-radius: 12px;
-    font-size: 0.4em;
-    margin-left: 0.5rem;
-    font-weight: 500;
+    color: #dc2626;
+    background-color: #fef2f2;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--border-radius);
+    font-size: 0.75rem;
+    margin-left: var(--space-sm);
+    font-weight: 600;
     white-space: nowrap;
+    border: 1px solid #fecaca;
 }
 
-/* Loading State (alt) */
+/* ===================================================================
+   LOADING STATES - Modern Animation
+   ================================================================= */
+
+/* Enhanced loading container */
+.loading-container {
+    width: 100%;
+    margin: var(--space-lg) 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* Improved loading animation */
 .loading {
-    color: #8b5cf6;
+    color: var(--primary);
     font-style: italic;
     font-weight: 500;
     text-align: center;
-    padding: 15px 0;
-    font-size: 16px;
+    padding: var(--space-lg) 0;
+    font-size: 1rem; /* Increased from 16px for consistency */
     background: transparent;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
-    animation: pulse 2s infinite ease-in-out;
+    gap: var(--space-md);
     width: 100%;
+    max-width: 500px;
 }
 
-/* Search Options */
-.search-options {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    margin: 1rem 0;
-    flex-wrap: wrap;
-}
-
-.max-results {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.max-results label {
-    font-size: 0.9rem;
-    color: #4B5563;
-}
-
-.max-results input[type="number"] {
-    width: 60px;
-    padding: 0.4rem 0.5rem;
-    border: 1px solid #D1D5DB;
-    border-radius: 6px;
-    font-size: 0.9rem;
-    text-align: center;
-}
-
-.max-results input[type="number"]:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
-}
-
-/* === Search layout overrides === */
-.search-input-group { max-width: 100% !important; width: 100% !important; }
-.search-input { max-width: 100% !important; width: 100% !important; }
-
-/* Row below input: [empty] [DOCX centered] [Search right] */
-.action-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
-  gap: 10px;
-  margin-top: 8px;
-}
-.action-row .center { justify-self: center; }
-.action-row .right  { justify-self: end; }
-
-/* Ensure both action buttons have the same fixed size */
-#downloadDocx.download-btn {
-  width: var(--action-btn-w) !important;
-  height: var(--action-btn-h) !important;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-.action-row .download-buttons { margin: 0; padding: 0; }
-
-/* Markdown basics */
-.markdown-content h1, .markdown-content h2, .markdown-content h3,
-.markdown-content h4, .markdown-content h5, .markdown-content h6 {
-  margin: 0.6em 0 0.4em;
-  line-height: 1;
-}
-.markdown-content p { margin: 0.4em 0; }
-.markdown-content p:first-child { margin-top: 0; }
-.markdown-content p:last-child  { margin-bottom: 0; }
-.markdown-content { white-space: normal; }
-.markdown-content ul, .markdown-content ol {
-  margin: 0.3em 1em;
-  padding-left: 1em;
-}
-.markdown-content li { margin: 0.25em 0; }
-.markdown-content code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-  font-size: 0.6em;
-  background: #f6f8fa;
-  padding: 0.15em 0.35em;
-  border-radius: 4px;
-}
-.markdown-content pre {
-  background: #f6f8fa;
-  padding: 0.75em 1em;
-  border-radius: 6px;
-  overflow: auto;
-}
-
-/* === ALINHAR TUDO NA MESMA LINHA (RESULTADOS) === */
-/* Mantém índice [n], texto (markdown) e badges na MESMA linha */
-.displaybox-item {
-    display: block;
-    align-items: flex-start;
-    gap: 8px;
-    flex-wrap: nowrap;       /* evita quebrar o grupo em outra linha */
-}
-/* Índice fixo */
-.displaybox-item .paragraph-marker {
-    flex: 0 0 auto;
-    line-height: 1;
-}
-/* Texto ocupa o restante; permite quebra interna sem empurrar badges */
-.displaybox-item .displaybox-text {
-    flex: 1 1 auto;
-    min-width: 0;           /* permite quebra/encolher dentro do flex */
-    display: block;
-    white-space: normal;
-}
-/* Primeiro bloco do markdown “cola” no índice */
-.displaybox-item .displaybox-text > p:first-child,
-.displaybox-item .displaybox-text > h1:first-child,
-.displaybox-item .displaybox-text > h2:first-child,
-.displaybox-item .displaybox-text > h3:first-child,
-.displaybox-item .displaybox-text > h4:first-child,
-.displaybox-item .displaybox-text > h5:first-child,
-.displaybox-item .displaybox-text > h6:first-child {
-    display: inline;
-    margin: 0;
-}
-/* Badges não esticam e não quebram */
-.displaybox-item .score-badge {
-    flex: 0 0 auto;
-    white-space: nowrap;
-    margin-left: 6px;
-}
-
-/* Search container fancy button */
-.search-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 16px 0;
-}
-#searchButton.search-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    color: #fff;
-    background: linear-gradient(135deg, #28cca0, #1b896c, #0d382c);
-    background-size: 200% 200%;
-    border: none;
-    border-radius: 14px;
-    padding: 16px 28px;
-    font-weight: 600;
-    font-size: 1rem;
-    box-shadow: 0 10px 20px rgba(37,99,235,0.30), 0 6px 10px rgba(0,0,0,0.10);
-    cursor: pointer;
-    transform: translateY(0);
-    transition: background-position 400ms ease, transform 150ms ease, box-shadow 150ms ease, filter 150ms ease;
-    width: 180px;
-    text-align: center;
-}
-#searchButton.search-button:hover {
-    background-position: 100% 0;
-    transform: translateY(-2px);
-    box-shadow: 0 14px 28px rgba(37,99,235,0.35), 0 10px 16px rgba(0,0,0,0.12);
-    filter: saturate(1.1);
-}
-#searchButton.search-button:active {
-    transform: translateY(0);
-    box-shadow: 0 8px 16px rgba(37,99,235,0.30), 0 6px 10px rgba(0,0,0,0.10);
-}
-#searchButton.search-button:focus-visible {
-    outline: 3px solid rgba(59,130,246,0.5);
-    outline-offset: 3px;
-    animation: glowPulse 1.8s ease-in-out infinite;
-}
-#searchButton.search-button .fa-book { font-size: 1.1em; }
-@keyframes glowPulse {
-    0% { box-shadow: 0 0 0 rgba(37,99,235,0.0); }
-    70% { box-shadow: 0 0 25px rgba(59,130,246,0.35); }
-    100% { box-shadow: 0 0 0 rgba(37,99,235,0.0); }
-}
-
-/* Pensata button */
-#pensataButton, .pensata-button {
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(135deg, #f2c94c, #f59e0b, #d97706);
-    color: #ffffff;
-    width: 100%;
-    max-width: 400px;
-    align-self: center;
-    justify-content: center;
-    text-align: center;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 16px 28px;
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin: 0 auto;
-    height: 56px;
-    border: none;
-    border-radius: 12px;
-    background-size: 200% 200%;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background-position 0.4s ease;
-    box-shadow: 0 10px 15px -3px rgba(217, 119, 6, 0.25), 0 4px 6px -2px rgba(217, 119, 6, 0.15);
-    cursor: pointer;
-    transform: translateY(0);
-    transition: background-position 400ms ease, transform 150ms ease, box-shadow 150ms ease, filter 150ms ease;
-}
-#pensataButton:hover, .pensata-button:hover {
-    background-position: 100% 0;
-    transform: translateY(-2px);
-    box-shadow: 0 15px 25px -5px rgba(217, 119, 6, 0.35), 0 8px 10px -6px rgba(217, 119, 6, 0.25);
-}
-#pensataButton:active, .pensata-button:active {
-    transform: translateY(0);
-    box-shadow: 0 6px 10px -4px rgba(217, 119, 6, 0.25), 0 3px 6px -4px rgba(217, 119, 6, 0.20);
-}
-#pensataButton:focus-visible, .pensata-button:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.35), 0 10px 15px -3px rgba(217, 119, 6, 0.25);
-}
-/* brilho em varredura */
-#pensataButton::after, .pensata-button::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -100%;
-    width: 50%;
-    height: 200%;
-    background: linear-gradient(120deg, rgba(255,255,255,0), rgba(255,255,255,0.35), rgba(255,255,255,0));
-    transform: rotate(25deg);
-    transition: left 1s ease;
-    pointer-events: none;
-}
-#pensataButton:hover::after, .pensata-button:hover::after { left: 120%; }
-
-/* === Global Typography Override: force 8pt across modules === */
-html { font-size: 8pt !important; }
-body { font-size: 0.8rem !important; }
-
-
-/* Substitua a sua regra global por esta: */
-*:not(.fa):not(.fas):not(.far):not(.fab):not(.fal):not(.fad):not(.badge) {
-    font-size: inherit !important;
-  }
-  /* E controle o tamanho dos badges aqui: */
-  .badge { font-size: 0.70em; } /* ou nas variantes */
-  
-/* Keep icon fonts consistent (relative to parent) */
-.fa, .fas, .far, .fab, .fal, .fad { font-size: 1em !important; }
-
-/* === Global Line-Height Override: tighter spacing === */
-html { line-height: 1.2 !important; }
-body { line-height: inherit !important; }
-*, *::before, *::after { line-height: inherit !important; }
-
-.text-content,
-.text-content p,
-.displaybox-content,
-.displaybox-item,
-.displaybox-text,
-.paragraph-marker,
-.markdown-content,
-.markdown-content p,
-.markdown-content li { line-height: inherit !important; }
-
-/* Loading Spinner */
-.loading-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    margin: 1rem 0;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.8);
-}
-.loading {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-size: 0.8rem;
-    color: var(--dark);
-    font-weight: 500;
-}
+/* Modern loading spinner */
 .loading::before {
     content: '';
-    display: inline-block;
-    width: 1.25rem;
-    height: 1.25rem;
-    border: 2px solid var(--primary);
-    border-radius: 50%;
-    border-top-color: transparent;
-    animation: spin 0.8s linear infinite;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
-
-/* Ensure Font Awesome spinner is properly aligned */
-.fa-spinner, .fa-spin { margin-right: 0.5rem; }
-
-.displaybox-item {
     display: block;
-    align-items: center;
-    gap: 0.5em;
-  }
-  
-  .paragraph-marker {
-    font-weight: 700;
-    white-space: nowrap; /* evita quebra */
-  }
-  
-  .displaybox-text {
-    flex: 1;              /* ocupa linha contínua */
-    display: inline;      /* força inline do conteúdo */
-  }
-  
-  .badges-group {
-    white-space: nowrap;  /* badges sempre à direita */
-    font-size: 0.75em;
-  }
-  
-/* Versão menor + verde claro */
-.small-green {
-  font-size: 0.75em;   /* fonte menor */
+    width: 32px;
+    height: 32px;
+    border: 3px solid var(--border-light);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
 }
-.small-green .badge {
-    font-size: 0.7em !important;       /* agora realmente diminui */
-    background-color: #dff5df; /* verde claro */
-    border: 1px solid #9ccf9c;
-    color: #1e4620;
-    border-radius: 999px;
-    padding: 0.1rem 0.4rem;
-    margin-left: 0.2em;
-  }
-  
-/* força conteúdo markdown a ser inline */
-.markdown-inline p {
-    display: inline;
-    margin: 0;
-  }
-  .markdown-inline * {
-    display: inline;
-  }
-  
 
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
 
-  /* === FIX badges: força tamanho menor, independente do global inherit === */
-.displaybox-item .badges-group.small-green .badge {
-    font-size: 0.70em !important;
-  }
-  
-  .displaybox-item .badge-score,
-  .displaybox-item .badge-para,
-  .displaybox-item .badge-meta {
-    font-size: 0.70em !important; /* se você usa variações por cor */
-  }
+/* ===================================================================
+   FORM OPTIONS - Better Visual Grouping
+   ================================================================= */
 
-  
-
-  .header-text {
-    color: #1e40af; /* azul mais elegante */
-    /*font-weight: 600;*/
-    font-size: 0.6rem; /* mantém legível, alinhado com displaybox */
-    line-height: 1.4;
-    margin-bottom: 0.25rem; /* separação mínima do texto abaixo */
-    display: block; /* garante que apareça em linha própria acima do texto */
-  }
-  
-  /* Book Selection Styles */
+/* Enhanced book selection area */
 .book-selection {
-    margin: 1.5rem 0;
-    padding: 1rem;
-    background: #f8f9fa;
-    border-radius: 8px;
-    border: 1px solid #e9ecef;
+    margin: var(--space-lg) 0;
+    padding: var(--space-lg);
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-light);
 }
 
 .book-selection h3 {
-    margin-bottom: 0.75rem;
-    color: var(--dark);
+    margin-bottom: var(--space-md);
+    color: var(--text-primary);
     font-size: 1rem;
     font-weight: 600;
 }
@@ -879,23 +661,23 @@ body { line-height: inherit !important; }
 .book-checkboxes {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem 1.5rem;
+    gap: var(--space-sm) var(--space-lg);
 }
 
 .book-checkboxes label {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--space-sm);
     cursor: pointer;
     font-size: 0.9rem;
-    color: var(--dark);
+    color: var(--text-primary);
     transition: var(--transition);
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--space-xs);
 }
 
 .book-checkboxes label:hover {
-    background-color: #e9ecef;
+    background-color: var(--bg-tertiary);
 }
 
 .book-checkboxes input[type="checkbox"] {
@@ -905,83 +687,281 @@ body { line-height: inherit !important; }
     accent-color: var(--primary);
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .book-checkboxes {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-    
-    .book-checkboxes label {
-        padding: 0.5rem 0.75rem;
-    }
-}
-
-
-
-.meta-info-row {
-    display: flex;
-    gap: 8px; /* espaço entre os badges */
-    flex-wrap: wrap; /* quebra de linha caso a tela seja estreita */
-  }
-  
-/* Search Options */
+/* Enhanced search options */
 .search-options {
-    margin: 10px 0 20px;
-    padding: 10px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    margin: var(--space-md) 0;
+    flex-wrap: wrap;
+    padding: var(--space-md);
+    background-color: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-light);
 }
 
 .option-label {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: var(--space-sm);
     cursor: pointer;
-    font-size: 14px;
-    color: #333;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    transition: var(--transition);
+}
+
+.option-label:hover {
+    color: var(--primary);
 }
 
 .option-label input[type="checkbox"] {
     width: 16px;
     height: 16px;
     cursor: pointer;
+    accent-color: var(--primary);
 }
 
-.option-label:hover {
-    color: #0056b3;
+.max-results {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
 }
 
-
-/* Ensure the container has proper layout */
-.metadata-container {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 5px !important;
-    margin-top: 10px !important;
-    align-items: center !important;
+.max-results label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 500;
 }
 
-/* Make sure badges are properly displayed */
-.metadata-badge {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    font-size: 0.4rem !important;
-    color: #000000 !important;
-    background-color: #e7ffe2 !important;
-    border-radius: 4px !important;
-    border: 1px solid rgb(200, 200, 200) !important;
-    padding: 2px 6px !important;
-    margin: 2px !important;
-    white-space: nowrap !important;
-    line-height: 1.2 !important;
-    height: auto !important;
+.max-results input[type="number"] {
+    width: 70px;
+    padding: var(--space-xs) var(--space-sm);
+    border: 1px solid var(--border-light);
+    border-radius: var(--space-xs);
+    font-size: 0.9rem;
+    text-align: center;
+    background: var(--bg-primary);
 }
 
-/* Specific badge colors */
-.metadata-badge.estilo1 { background-color: #fff0d4 !important; color: #000000 !important; }
-.metadata-badge.estilo2 { background-color: #e7ffe2 !important; color: #000000 !important; }
-.metadata-badge.estilo3 { background-color: #e7ffe2 !important; color: #000000 !important; }
-.metadata-badge.estilo4 { background-color: #e7ffe2 !important; color: #000000 !important; }
-.metadata-badge.estilo5 { background-color: #e7ffe2 !important; color: #000000 !important; }
+.max-results input[type="number"]:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+/* ===================================================================
+   MARKDOWN CONTENT - Improved Typography
+   ================================================================= */
+
+/* Enhanced markdown content styling */
+.markdown-content {
+    white-space: normal;
+    line-height: 1.7;
+}
+
+.markdown-content h1, 
+.markdown-content h2, 
+.markdown-content h3,
+.markdown-content h4, 
+.markdown-content h5, 
+.markdown-content h6 {
+    margin: var(--space-md) 0 var(--space-sm);
+    line-height: 1.3;
+    color: var(--text-primary);
+}
+
+.markdown-content p { 
+    margin: var(--space-sm) 0; 
+    color: var(--text-primary);
+}
+
+.markdown-content p:first-child { 
+    margin-top: 0; 
+}
+
+.markdown-content p:last-child { 
+    margin-bottom: 0; 
+}
+
+.markdown-content ul, 
+.markdown-content ol {
+    margin: var(--space-sm) var(--space-md);
+    padding-left: var(--space-md);
+}
+
+.markdown-content li { 
+    margin: var(--space-xs) 0; 
+}
+
+.markdown-content code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    font-size: 0.875rem;
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--space-xs);
+    border: 1px solid var(--border-light);
+}
+
+.markdown-content pre {
+    background: var(--bg-tertiary);
+    padding: var(--space-md);
+    border-radius: var(--border-radius);
+    overflow: auto;
+    border: 1px solid var(--border-light);
+    margin: var(--space-md) 0;
+}
+
+/* ===================================================================
+   SPECIAL COMPONENTS - Enhanced Styling
+   ================================================================= */
+
+/* Enhanced pensata button with modern gradient */
+#pensataButton, 
+.pensata-button {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--quaternary), var(--quaternary-hover));
+    color: white;
+    width: 100%;
+    max-width: 400px;
+    align-self: center;
+    justify-content: center;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-lg) var(--space-xl);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 auto;
+    min-height: 60px;
+    border: none;
+    /* UPDATED: More rounded for consistency with modern search input */
+    border-radius: 24px;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    cursor: pointer;
+}
+
+#pensataButton:hover, 
+.pensata-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+#pensataButton:active, 
+.pensata-button:active {
+    transform: translateY(0);
+}
+
+/* Enhanced error state */
+.error {
+    color: #dc2626;
+    background-color: #fef2f2;
+    padding: var(--space-md);
+    border-radius: var(--border-radius);
+    margin: var(--space-md) 0;
+    border: 1px solid #fecaca;
+    font-weight: 500;
+}
+
+/* ===================================================================
+   RESPONSIVE DESIGN - Mobile Optimization
+   ================================================================= */
+
+@media (max-width: 768px) {
+    body {
+        padding: var(--space-md);
+    }
+    
+    .container {
+        padding: var(--space-lg);
+        margin: var(--space-sm) auto;
+    }
+    
+    .container-wrapper {
+        padding: 0 var(--space-sm);
+        gap: var(--space-md);
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .book-checkboxes {
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+    
+    .book-checkboxes label {
+        padding: var(--space-sm) var(--space-md);
+    }
+    
+    .search-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-md);
+    }
+    
+    .btn-group .btn {
+        max-width: 100%;
+    }
+    
+    /* UPDATED: Mobile responsive adjustments for integrated search button */
+    .search-input {
+        padding: var(--space-md) 50px var(--space-md) var(--space-md); /* Reduced padding on mobile */
+        min-height: 48px; /* Slightly smaller on mobile */
+    }
+    
+    .search-button,
+    .chat-send-btn {
+        width: 36px;
+        height: 36px;
+        right: 6px; /* Closer to edge on mobile */
+    }
+    
+    .search-button i,
+    .chat-send-btn i {
+        font-size: 1rem; /* Slightly smaller icon on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    /* UPDATED: Simplified mobile layout - search button stays integrated */
+    .search-input {
+        padding: var(--space-sm) 45px var(--space-sm) var(--space-md);
+        min-height: 44px;
+        border-radius: 22px; /* Maintain proportional rounding */
+    }
+    
+    .search-button,
+    .chat-send-btn {
+        width: 32px;
+        height: 32px;
+        right: 6px;
+    }
+}
+
+/* ===================================================================
+   UTILITY CLASSES - Helper Styles
+   ================================================================= */
+
+/* Text utilities */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+/* Spacing utilities */
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+.p-0 { padding: 0; }
+
+/* Display utilities */
+.d-none { display: none; }
+.d-block { display: block; }
+.d-flex { display: flex; }
+
+/* ===================================================================
+   END OF MODERN FRONTEND REDESIGN
+   ================================================================= */

@@ -1,0 +1,14 @@
+{
+  "name": "cons-ai-frontend",
+  "version": "1.0.0",
+  "description": "Cons.AI Frontend Application",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx http-server frontend -p 3000 -c-1 --cors",
+    "start": "npx http-server frontend -p 3000 -c-1 --cors",
+    "preview": "npx http-server frontend -p 3000 -c-1 --cors"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
