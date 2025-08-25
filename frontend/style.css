@@ -339,21 +339,27 @@ h3 {
 }
 
 .search-input-group {
+    /* UPDATED: Modern search input group with integrated button */
     width: 100%;
     max-width: 800px;
-    display: flex;
-    gap: var(--space-sm);
+    position: relative;
     margin: 0 auto;
+    display: flex;
     align-items: center;
 }
 
 /* Enhanced search button with modern circular design */
 .search-button,
 .chat-send-btn {
-    width: 48px; /* Fixed circular size */
-    height: 48px;
+    /* UPDATED: Modern integrated search button like ChatGPT/Gemini */
+    position: absolute;
+    right: 8px; /* Position inside the input field */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
     padding: 0;
-    border-radius: 50%; /* Perfect circle */
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -363,6 +369,8 @@ h3 {
     transition: var(--transition);
     flex-shrink: 0;
     box-shadow: var(--shadow-sm);
+    z-index: 10; /* Ensure button appears above input */
+    cursor: pointer;
 }
 
 .search-button:hover,
@@ -386,8 +394,8 @@ h3 {
 /* ===================================================================
    DOWNLOAD COMPONENTS - Improved Button Design
    ================================================================= */
-
-/* Enhanced download buttons container */
+    /* UPDATED: Adjusted padding to accommodate integrated button */
+    padding: var(--space-md) 60px var(--space-md) var(--space-lg); /* Extra right padding for button */
 .download-buttons {
     display: none;
     justify-content: center;
@@ -405,8 +413,8 @@ h3 {
     border: 2px solid var(--border-light);
     border-radius: var(--border-radius);
     transition: var(--transition);
-    margin: 0 auto;
-    display: flex; /* Changed to flex for better alignment */
+    display: flex;
+    align-items: center;
     align-items: center;
     justify-content: center;
     gap: var(--space-sm);
@@ -414,6 +422,9 @@ h3 {
     min-height: 48px;
 }
 
+    /* UPDATED: Modern input styling similar to ChatGPT/Gemini */
+    border-radius: 24px; /* More rounded for modern look */
+    min-height: 56px; /* Consistent height for better UX */
 /* Specific download button variants */
 #downloadPDF {
     background-color: #ef4444;
@@ -826,7 +837,8 @@ button:disabled {
     margin: 0 auto;
     min-height: 60px;
     border: none;
-    border-radius: var(--border-radius-lg);
+    /* UPDATED: More rounded for consistency with modern search input */
+    border-radius: 24px;
     transition: var(--transition);
     box-shadow: var(--shadow);
     cursor: pointer;
@@ -895,24 +907,39 @@ button:disabled {
     .btn-group .btn {
         max-width: 100%;
     }
-}
-
-@media (max-width: 480px) {
-    .search-input-group {
-        flex-direction: column;
-        gap: var(--space-md);
-    }
     
+    /* UPDATED: Mobile responsive adjustments for integrated search button */
     .search-input {
-        max-width: 100%;
+        padding: var(--space-md) 50px var(--space-md) var(--space-md); /* Reduced padding on mobile */
+        min-height: 48px; /* Slightly smaller on mobile */
     }
     
     .search-button,
     .chat-send-btn {
-        width: 100%;
-        max-width: 200px;
-        border-radius: var(--border-radius);
-        height: 48px;
+        width: 36px;
+        height: 36px;
+        right: 6px; /* Closer to edge on mobile */
+    }
+    
+    .search-button i,
+    .chat-send-btn i {
+        font-size: 1rem; /* Slightly smaller icon on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    /* UPDATED: Simplified mobile layout - search button stays integrated */
+    .search-input {
+        padding: var(--space-sm) 45px var(--space-sm) var(--space-md);
+        min-height: 44px;
+        border-radius: 22px; /* Maintain proportional rounding */
+    }
+    
+    .search-button,
+    .chat-send-btn {
+        width: 32px;
+        height: 32px;
+        right: 6px;
     }
 }
 
